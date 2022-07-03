@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Search from './components/Search';
+/*import manifest from '../public/manifest'
+import main from '../build/static/js/main'*/
+import Test from './components/Test'
+
 
 function App() {
+  const test = "App test"
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={test}>
+      <Search/>
+      <Test/>
     </div>
   );
 }

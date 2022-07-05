@@ -9,37 +9,57 @@ export const Search = () => {
         const result = `${hour}:${minutes}`
         return result
     }
-    console.log(createDate(date));
-    const [test, test2] = [1,2]
+    /*console.log(createDate(date));
+    const [test, test2] = [1,2]*/
     const [time,setTime] = useState('')
-    const [counter,setCounter] = useState(0)
-    const [count, changed] = useState(date.toTimeString())
+    const [city,changed] = useState('')
+    /*const [counter,setCounter] = useState(0)
+    const [count, changed] = useState(date.toTimeString())*/
+    const offset = 7
 
-    useEffect(() => {
+   /* useEffect(() => {
         console.log('counter changed')
-    },[])
+    },[])*/
     const inputHandler = (event) => {
-        console.log(event)
         const value = event.target.value
-        setCounter(counter+1)
         setTime(value)
+        const moscow = value.split(':')
+
+        if(moscow[0].length > 2 || moscow[1].length > 2){
+            alert("You entered more than 5 symbols! Try again!")
+            window.location.reload()
+        }
+
+        if (moscow[0] <= 17){
+            changed(parseInt(moscow[0]) + offset + ":" + moscow[1])
+        } else{
+        changed(offset - (24 - parseInt(moscow[0])) + ":" + moscow[1])
+        }
+
+
+
     }
+
+
+
 
 
    /* const offset = +7*/
     return (
         <div>
-            <input onInput={inputHandler}/>
-            <h1>time: {time}</h1>
-            <h1>counter: {counter}</h1>
+
+            {/*<h1>counter: {counter}</h1>*/}
 
             <p>Washington DC, United States</p>
-            {count}
+            {/*{count}*/}
+            <input onInput={inputHandler}/>
+            <h1>time: {time}</h1>
             <hr/>
             <div>Moscow, Russia</div>
-            <button onClick={() => {
+            <h1>time: {city}</h1>
+            {/*<button onClick={() => {
             changed()
-            }}>click</button>
+            }}>click</button>*/}
             <Main/>
         </div>
     )

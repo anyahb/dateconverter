@@ -11,7 +11,7 @@ function App() {
   return (
     <div className={test}>
       <Search/>
-      <Test/>
+      {/*<Test/>*/}
     </div>
   );
 }

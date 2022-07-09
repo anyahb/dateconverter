@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import Main from "./Main"
 
 export const Search = () => {
+
     const date = new Date()
     const createDate = function(d){
         const hour = d.getHours()
@@ -25,10 +26,6 @@ export const Search = () => {
         setTime(value)
         const moscow = value.split(':')
 
-        if(moscow[0].length > 2 || moscow[1].length > 2){
-            alert("You entered more than 5 symbols! Try again!")
-            window.location.reload()
-        }
 
         if (moscow[0] <= 17){
             changed(parseInt(moscow[0]) + offset + ":" + moscow[1])
@@ -38,28 +35,50 @@ export const Search = () => {
 
 
 
+
+    }
+
+    const moscowTime = function (){
+      console.log("moscow")
+    }
+
+    const washingtonTime = function (){
+        console.log("washington")
+    }
+
+    const londonTime = function (){
+        console.log("london")
     }
 
 
 
 
 
-   /* const offset = +7*/
+    /* const offset = +7*/
     return (
         <div>
-
-            {/*<h1>counter: {counter}</h1>*/}
-
             <p>Washington DC, United States</p>
-            {/*{count}*/}
+
             <input onInput={inputHandler}/>
-            <h1>time: {time}</h1>
+
+            <button onClick={washingtonTime}>Washington</button>
+
+
+           <h1>{time}</h1>
             <hr/>
-            <div>Moscow, Russia</div>
-            <h1>time: {city}</h1>
-            {/*<button onClick={() => {
-            changed()
-            }}>click</button>*/}
+            <p>Moscow, Russia</p>
+
+            <button onClick={moscowTime}>Moscow</button>
+
+            <h1>{city}</h1>
+
+            <hr/>
+
+            <p>London, England</p>
+
+            <button onClick={londonTime}>London</button>
+
+
             <Main/>
         </div>
     )

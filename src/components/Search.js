@@ -14,9 +14,11 @@ export const Search = () => {
     const [test, test2] = [1,2]*/
     const [time,setTime] = useState('')
     const [city,changed] = useState('')
+    const [lond,modified] = useState('')
     /*const [counter,setCounter] = useState(0)
     const [count, changed] = useState(date.toTimeString())*/
-    const offset = 7
+    const offsetMoscow = 7
+    const offsetLondon = 5
 
    /* useEffect(() => {
         console.log('counter changed')
@@ -24,30 +26,39 @@ export const Search = () => {
     const inputHandler = (event) => {
         const value = event.target.value
         setTime(value)
-        const moscow = value.split(':')
+        /*const moscow = value.split(':')
 
 
         if (moscow[0] <= 17){
             changed(parseInt(moscow[0]) + offset + ":" + moscow[1])
         } else{
         changed(offset - (24 - parseInt(moscow[0])) + ":" + moscow[1])
-        }
-
-
-
-
+        }*/
     }
 
     const moscowTime = function (){
-      console.log("moscow")
+        const valMoscow = time
+        const moscva = valMoscow.split(':')
+       if (moscva[0] <= 17){
+           changed(parseInt(moscva[0]) + offsetMoscow + ":" + moscva[1])
+       } else{
+       changed(offsetMoscow - (24 - parseInt(moscva[0])) + ":" + moscva[1])
+       }
     }
 
-    const washingtonTime = function (){
-        console.log("washington")
-    }
+    /*const washingtonTime = function (){
+
+    }*/
 
     const londonTime = function (){
-        console.log("london")
+        const valLondon = city
+        const london = valLondon.split(':')
+        if (london[0] <= 17){
+            modified(parseInt(london[0]) + offsetLondon + ":" + london[1])
+        } else{
+            modified(offsetLondon - (24 - parseInt(london[0])) + ":" + london[1])
+        }
+
     }
 
 
@@ -61,7 +72,7 @@ export const Search = () => {
 
             <input onInput={inputHandler}/>
 
-            <button onClick={washingtonTime}>Washington</button>
+           {/* <button onClick={washingtonTime}>Washington</button>*/}
 
 
            <h1>{time}</h1>
@@ -76,6 +87,7 @@ export const Search = () => {
 
             <p>London, England</p>
 
+            <h1>{lond}</h1>
             <button onClick={londonTime}>London</button>
 
 

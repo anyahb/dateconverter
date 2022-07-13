@@ -26,6 +26,8 @@ export const Search = () => {
 
 
 
+
+
     const moscowTime = function () {
         const valMoscow = currentTime
         const moscva = valMoscow.split(':')
@@ -50,43 +52,52 @@ export const Search = () => {
 
     const converting = function (city) { // Moscow
         setCurrentConvertedCity(city)
-        if (city === "Moscow") {
-            const moscva = currentTime.split(':')
-            if (moscva[0] <= 17) {
-                setConvertedTime(parseInt(moscva[0]) + offsetMoscow + ":" + moscva[1])
-            } else {
-                setConvertedTime(offsetMoscow - (24 - parseInt(moscva[0])) + ":" + moscva[1])
-            }
-        }
-        if (city === "London") {
-            const london = currentTime.split(':')
-            if (london[0] <= 17) {
-                setConvertedTime(parseInt(london[0]) + offsetLondon + ":" + london[1])
-            } else {
-                setConvertedTime(offsetLondon - (24 - parseInt(london[0])) + ":" + london[1])
-            }
-        }
+        const splittedTime = currentTime.split(":")
+        const hour = parseInt(splittedTime[0])
+        const minute = parseInt(splittedTime[1])
 
+        if (currentTime.length === 5 || (!isNaN(hour) && !isNaN(minute))) {
+            if (city === "Moscow") {
+
+                if (splittedTime[0] <= 17) {
+                    setConvertedTime(parseInt(splittedTime[0]) + offsetMoscow + ":" + splittedTime[1])
+                } else {
+                    setConvertedTime(offsetMoscow - (24 - parseInt(splittedTime[0])) + ":" + splittedTime[1])
+                }
+            }
+            if (city === "London") {
+
+                if (splittedTime[0] <= 17) {
+                    setConvertedTime(parseInt(splittedTime[0]) + offsetLondon + ":" + splittedTime[1])
+                } else {
+                    setConvertedTime(offsetLondon - (24 - parseInt(splittedTime[0])) + ":" + splittedTime[1])
+                }
+            }
+        }
     }
 
     const inputHandler = (event) => {
         const value = event.target.value
+        setCurrentTime(value)
         const conv = currentConvertedCity
-        if (conv === "Moscow"){
-            const moscva = value.split(':')
-            if (moscva[0] <= 17) {
-                setConvertedTime(parseInt(moscva[0]) + offsetMoscow + ":" + moscva[1])
-            } else {
-                setConvertedTime(offsetMoscow - (24 - parseInt(moscva[0])) + ":" + moscva[1])
+        const splittedTime = value.split(":")
+        const hour = parseInt(splittedTime[0])
+        const minute = parseInt(splittedTime[1])
+        if (value.length === 5 || (!isNaN(hour) && !isNaN(minute))){
+            if (conv === "Moscow"){
+                if (splittedTime[0] <= 17) {
+                    setConvertedTime(parseInt(splittedTime[0]) + offsetMoscow + ":" + splittedTime[1])
+                } else {
+                    setConvertedTime(offsetMoscow - (24 - parseInt(splittedTime[0])) + ":" + splittedTime[1])
+                }
             }
-        }
 
-        if (conv === "London"){
-            const london = value.split(':')
-            if (london[0] <= 17) {
-                setConvertedTime(parseInt(london[0]) + offsetLondon + ":" + london[1])
-            } else {
-                setConvertedTime(offsetLondon - (24 - parseInt(london[0])) + ":" + london[1])
+            if (conv === "London"){
+                if (splittedTime[0] <= 17) {
+                    setConvertedTime(parseInt(splittedTime[0]) + offsetLondon + ":" + splittedTime[1])
+                } else {
+                    setConvertedTime(offsetLondon - (24 - parseInt(splittedTime[0])) + ":" + splittedTime[1])
+                }
             }
         }
 

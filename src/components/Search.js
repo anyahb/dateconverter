@@ -75,18 +75,18 @@ export const Search = () => {
         if (conv === "Moscow"){
             const moscva = value.split(':')
             if (moscva[0] <= 17) {
-                setCurrentTime(parseInt(moscva[0]) + offsetMoscow + ":" + moscva[1])
+                setConvertedTime(parseInt(moscva[0]) + offsetMoscow + ":" + moscva[1])
             } else {
-                setCurrentTime(offsetMoscow - (24 - parseInt(moscva[0])) + ":" + moscva[1])
+                setConvertedTime(offsetMoscow - (24 - parseInt(moscva[0])) + ":" + moscva[1])
             }
         }
 
         if (conv === "London"){
             const london = value.split(':')
             if (london[0] <= 17) {
-                setCurrentTime(parseInt(london[0]) + offsetLondon + ":" + london[1])
+                setConvertedTime(parseInt(london[0]) + offsetLondon + ":" + london[1])
             } else {
-                setCurrentTime(offsetLondon - (24 - parseInt(london[0])) + ":" + london[1])
+                setConvertedTime(offsetLondon - (24 - parseInt(london[0])) + ":" + london[1])
             }
         }
 
@@ -99,7 +99,6 @@ export const Search = () => {
 
             <input placeholder={'type your time:'} onInput={inputHandler}/>
 
-            <h1>{currentTime}</h1>
 
             <button onClick={() => converting("Moscow")}>Moscow</button>
             <button onClick={() => converting("London")}>London</button>

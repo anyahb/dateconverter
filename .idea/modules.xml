@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../calculator/.idea/calculator.iml" filepath="$PROJECT_DIR$/../calculator/.idea/calculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/dateconverter.iml" filepath="$PROJECT_DIR$/.idea/dateconverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/date-converter.iml" filepath="$PROJECT_DIR$/.idea/date-converter.iml" />
     </modules>
   </component>
 </project>

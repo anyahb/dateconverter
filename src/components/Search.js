@@ -34,7 +34,7 @@ export const Search = () => {
     const [currentTime, setCurrentTime] = useState('')
     const [convertedTime, setConvertedTime] = useState('')
     const [currentConvertedCity, setCurrentConvertedCity] = useState("")
-    const [background, setBackground] = useState('default')
+    const [background, setBackground] = useState('clocks')
     const [containerBackground, setContainerBackground] = useState('')
 
 
@@ -66,7 +66,7 @@ export const Search = () => {
         const minute = parseInt(splitTime[1])
 
         if (hour < 24 && minute < 60) {
-            if (value.length === 5 || (!isNaN(hour) && !isNaN(minute))) {
+            if (value.length === 5 && (!isNaN(hour) && !isNaN(minute))) {
 
                 cities.forEach((item) => {
                     if (conv === item.city) {
@@ -84,14 +84,12 @@ export const Search = () => {
 
 
     const converting = function (city) { // Moscow
-
         const splitTime = currentTime.split(":")
         const hour = parseInt(splitTime[0])
         const minute = parseInt(splitTime[1])
         setCurrentConvertedCity(city)
 
-        if (hour < 24 && minute < 60) {
-            if (currentTime.length === 5 || (!isNaN(hour) && !isNaN(minute))) {
+        if (hour < 24 && minute < 60 && (currentTime.length === 5 && (!isNaN(hour) && !isNaN(minute)))) {
 
                 cities.forEach((item) => {
 
@@ -103,7 +101,8 @@ export const Search = () => {
                         }
                     }
                 })
-            }
+
+                console.log(currentTime.length)
         } else {
             setCurrentConvertedCity("Wrong Format")
             setConvertedTime("")

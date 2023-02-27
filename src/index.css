@@ -6,7 +6,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     max-width: 1920px;
     margin: 0 auto;
-    background-image: url("./img/default.jpg");
+    background-image: url("./img/clocks.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -40,7 +40,7 @@ code {
     font-family: monospace;
     background: #303030;
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
     border-radius: 10px;
 }
 
@@ -75,7 +75,7 @@ button {
     background: #303030;
     color: white;
     border-radius: 10px;
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: white;
     font-family: monospace;
 }
 

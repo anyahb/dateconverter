@@ -60,7 +60,7 @@ export const Search = () => {
 
         const value = event.target.value
         setCurrentTime(value)
-        const conv = currentConvertedCity
+        const convertedCityVal = currentConvertedCity
         const splitTime = value.split(":")
         const hour = parseInt(splitTime[0])
         const minute = parseInt(splitTime[1])
@@ -69,7 +69,7 @@ export const Search = () => {
             if (value.length === 5 && (!isNaN(hour) && !isNaN(minute))) {
 
                 cities.forEach((item) => {
-                    if (conv === item.city) {
+                    if (convertedCityVal === item.city) {
                         if (splitTime[0] < (24 - item.offset)) {
                             setConvertedTime(parseInt(splitTime[0]) + item.offset + ":" + splitTime[1])
                         } else {

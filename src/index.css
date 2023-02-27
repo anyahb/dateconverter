@@ -8,16 +8,14 @@ body {
     margin: 0 auto;
     background-image: url("./img/clocks.jpg");
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
     background-size: cover;
 }
 
-
 * {
     box-sizing: border-box;
 }
-
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -47,7 +45,6 @@ code {
 .container__display {
     color: white;
 }
-
 
 .container__input {
     display: flex;
@@ -99,7 +96,6 @@ button {
     }
 
 }
-
 
 @media (max-width: 480px) {
     .buttons {
